@@ -35,5 +35,13 @@ the PDF (no name, address, PPE or meter number) and the file is never sent. It n
 <script src="faktura.js"></script>
 <script>
   const {found, missing} = await fakturaTauron.read(file)
+  const masks = await fakturaTauron.mask(file)   // [{p, x, y, w, h, kind}]
 </script>
 ```
+
+`mask` finds where the invoice holds personal data, so the page can black it out before showing anything: the name
+and address, the point of supply (its address and PPE number), the customer's, payer's and account numbers, the
+transfer's details, the meter's and the invoice's numbers, and the QR and bar codes. It goes by the invoice's layout
+(the blocks that hold the customer's data are covered whole, but for the few labels we read) and by what such numbers
+look like, anywhere. taryfometr paints the bars into the page's image and drops the text under them, and from then on
+shows only that version.

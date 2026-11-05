@@ -1,5 +1,8 @@
 # parser
 
+## 0.3.0 — 2026-11-05
+- `faktura.js`: `mask(file)`, where an invoice holds personal data (name, address, PPE, customer, payer and account numbers, the transfer's details, the meter's and the invoice's numbers, QR and bar codes), to black it out in the browser
+
 ## 0.2.0 — 2026-11-03
 - `faktura.js`: a TAURON invoice's numbers from its PDF, in the browser (pdf.js); pieces of text joined by their place on the page
 
